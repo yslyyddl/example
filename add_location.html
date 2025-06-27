@@ -92,28 +92,7 @@
             }
         });
         
-        // 表单字段变更时更新地图
-        document.getElementById('latitude').addEventListener('change', updateMarker);
-        document.getElementById('longitude').addEventListener('change', updateMarker);
-        
-        function updateMarker() {
-            const lat = parseFloat(document.getElementById('latitude').value);
-            const lng = parseFloat(document.getElementById('longitude').value);
-            
-            if (!isNaN(lat) && !isNaN(lng)) {
-                const latlng = L.latLng(lat, lng);
-                
-                // 更新或添加标记
-                if (marker) {
-                    marker.setLatLng(latlng);
-                } else {
-                    marker = L.marker(latlng).addTo(map);
-                }
-                
-                // 将地图中心设置到标记位置
-                map.setView(latlng, 10);
-            }
-        }
+      
     });
 </script>
 {% endblock %}
